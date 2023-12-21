@@ -1,0 +1,14 @@
+<nav>
+  <button mat-flat-button>
+    <mat-icon>home</mat-icon>
+  </button>
+  <button mat-flat-button (click)="navigate('/mamas/')">
+    <mat-icon>people</mat-icon>
+  </button>
+  <button mat-flat-button (click)="navigate('/courses/')">
+    <mat-icon>calendar_month</mat-icon>
+  </button>
+</nav>
+<div class="content">
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,36 @@
+nav {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-around;
+    height: 10vh;
+    padding-bottom: 3vh;
+    background-color: var(--color-white);
+    
+}
+
+button:hover {
+    color: var(--color-main);
+  }
+
+::ng-deep .mat-mdc-unelevated-button:not(:disabled) {
+    color: var(--color-gray) !important;
+}
+
+::ng-deep .mat-mdc-unelevated-button:not(:disabled):hover {
+    color: var(--color-main) !important;
+}
+
+::ng-deep .mat-icon {
+    margin: 0!important;
+}
+
+.content {
+    margin-left: 5vw;
+    margin-right: 5vw;
+    padding-bottom: 18vh;
+    padding-top: 6vh;
+    font-family: "Roboto";
+  }
