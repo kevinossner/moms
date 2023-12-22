@@ -10,12 +10,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MamasComponent } from './pages/mamas/mamas.component';
 import { CoursesComponent } from './pages/courses/courses.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MamasComponent,
-    CoursesComponent
+    CoursesComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

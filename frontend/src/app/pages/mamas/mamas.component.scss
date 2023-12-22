@@ -1,14 +1,21 @@
 .add-btn {
-    background-color: var(--color-main);
-    right: 5vw;
-    position: fixed;
-    bottom: 15vh;
+  background-color: var(--color-main);
+  right: 5vw;
+  position: fixed;
+  bottom: 14vh;
 }
 
 .mama-card {
-    margin-bottom: 2em;
+  margin-bottom: 2em;
 }
 
-.card-icon {
-    color: var(--color-main);
+.close-btn {
+  float: right;
+}
+
+.mat-mdc-card-header {
+    padding-top: 0;
+    padding-right: 8px;
+    display: flex;
+    align-items: center;
 }

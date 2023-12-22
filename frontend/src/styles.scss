@@ -78,3 +78,15 @@ body {
 body::-webkit-scrollbar {
   display: none;
 }
+
+.mat-mdc-icon-button {
+  --mat-mdc-button-persistent-ripple-color: none;
+}
+
+.base-icon {
+  color: var(--color-gray);
+}
+
+.colored-icon {
+  color: var(--color-main)
+}
