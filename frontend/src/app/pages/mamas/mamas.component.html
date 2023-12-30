@@ -1,6 +1,24 @@
 <h1>Mamas</h1>
-<div *ngFor="let mama of mamas" class="any class you want">
-<mat-card class="mama-card">
+<div *ngFor="let mama of mamas" [ngSwitch]="mama.payment_status">
+<mat-card *ngSwitchCase="true" class="mama-card-ok">
+  <mat-card-header>
+    <mat-card-title-group>
+      <mat-card-title>{{ mama.first_name }} {{ mama.last_name }}</mat-card-title>
+    </mat-card-title-group>
+    <button mat-icon-button (click)="openDialog(template, mama.id)">
+      <mat-icon class="colored-icon">close</mat-icon>
+    </button>
+  </mat-card-header>
+  <mat-card-content>
+    <p>Lorem Ipsum</p>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-icon-button (click)="onEdit(mama.id)">
+      <mat-icon class="colored-icon">edit</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>
+<mat-card *ngSwitchCase="false" class="mama-card-nok">
   <mat-card-header>
     <mat-card-title-group>
       <mat-card-title>{{ mama.first_name }} {{ mama.last_name }}</mat-card-title>

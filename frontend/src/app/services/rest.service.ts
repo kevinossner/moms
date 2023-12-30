@@ -7,11 +7,13 @@ export interface Mama {
   id: number;
   first_name: string;
   last_name: string;
+  payment_status: boolean;
 }
 
-export interface CreateMama {
+export interface CreateUpdateMama {
   first_name: string;
   last_name: string;
+  payment_status: boolean;
 }
 
 export interface Appointment {
@@ -43,14 +45,14 @@ export class RestService {
     return this.http.get<Mama>(`${this.mainUrl}/mamas/${id}`);
   }
 
-  postMama(mama: CreateMama): Observable<Mama> {
+  postMama(mama: CreateUpdateMama): Observable<Mama> {
     let httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
     return this.http.post<Mama>(`${this.mainUrl}/mamas/`, mama, httpOptions);
   }
 
-  putMama(id: number, mama: CreateMama): Observable<Mama> {
+  putMama(id: number, mama: CreateUpdateMama): Observable<Mama> {
     let httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };

@@ -1,37 +1,48 @@
 <h1>Mama bearbeiten</h1>
-<mat-card class="add-mama-card">
+<mat-card class="edit-mama-card">
   <mat-card-actions align="end">
     <button mat-icon-button (click)="onClose()">
       <mat-icon class="colored-icon">close</mat-icon>
     </button>
   </mat-card-actions>
   <mat-card-content>
-    <mat-form-field class="name-form">
-      <mat-label>Vorname</mat-label>
-      <input matInput type="text" [(ngModel)]="firstName" />
-      <button
-        *ngIf="firstName"
-        matSuffix
-        mat-icon-button
-        aria-label="Clear"
-        (click)="firstName = ''"
-      >
-        <mat-icon>close</mat-icon>
-      </button>
-    </mat-form-field>
-    <mat-form-field class="name-form">
-      <mat-label>Nachname</mat-label>
-      <input matInput type="text" [(ngModel)]="lastName" />
-      <button
-        *ngIf="lastName"
-        matSuffix
-        mat-icon-button
-        aria-label="Clear"
-        (click)="lastName = ''"
-      >
-        <mat-icon>close</mat-icon>
-      </button>
-    </mat-form-field>
+    <div class="col">
+      <div class="row">
+        <mat-form-field class="name-form">
+          <mat-label>Vorname</mat-label>
+          <input matInput type="text" [(ngModel)]="firstName" />
+          <button
+            *ngIf="firstName"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="firstName = ''"
+          >
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="name-form">
+          <mat-label>Nachname</mat-label>
+          <input matInput type="text" [(ngModel)]="lastName" />
+          <button
+            *ngIf="lastName"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="lastName = ''"
+          >
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-slide-toggle [(ngModel)]="paymentStatus"
+          >Alles bezahlt</mat-slide-toggle
+        >
+      </div>
+    </div>
   </mat-card-content>
   <mat-card-actions align="end">
     <button mat-icon-button (click)="onSave()">

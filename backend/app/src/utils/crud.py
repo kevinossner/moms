@@ -10,7 +10,7 @@ def read_mama_by_id(db: Session, id: int):
     return db.query(models.Mama).filter(models.Mama.id == id).first()
 
 def create_mama(db: Session, mama: schemas.MamaBase):
-    db_entry = models.Mama(first_name=mama.first_name, last_name=mama.last_name)
+    db_entry = models.Mama(first_name=mama.first_name, last_name=mama.last_name, payment_status=mama.payment_status)
     db.add(db_entry)
     db.commit()
     db.refresh(db_entry)

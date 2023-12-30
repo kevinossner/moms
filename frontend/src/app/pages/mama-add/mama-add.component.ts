@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RestService, CreateMama } from '../../services/rest.service';
+import { RestService, CreateUpdateMama } from '../../services/rest.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -17,13 +17,15 @@ export class MamaAddComponent {
 
   firstName = '';
   lastName = '';
-  mama = <CreateMama>{};
+  paymentStatus = true;
+  mama = <CreateUpdateMama>{};
 
   onAdd(): void {
     let router = this.router;
     let snackBar = this.snackBar;
     this.mama.first_name = this.firstName;
     this.mama.last_name = this.lastName;
+    this.mama.payment_status = this.paymentStatus;
     this.restService.postMama(this.mama).subscribe({
       next(res) {},
       error(msg) {

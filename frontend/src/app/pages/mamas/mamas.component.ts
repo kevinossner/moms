@@ -53,7 +53,7 @@ export class MamasComponent {
         complete: () => {
           this.fetchMamas();
           this.dialogRef.close()
-          snackBar.open('Mama deleted!', 'Dismiss', {
+          snackBar.open('Mama gelöscht!', 'Ausblenden', {
             duration: 3 * 1000,
             horizontalPosition: 'center',
             verticalPosition: 'top',

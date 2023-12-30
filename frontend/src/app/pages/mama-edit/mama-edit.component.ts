@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RestService, CreateMama } from '../../services/rest.service';
+import { RestService, CreateUpdateMama } from '../../services/rest.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
@@ -18,14 +18,16 @@ export class MamaEditComponent {
 
   firstName = '';
   lastName = '';
+  paymentStatus = true;
   id: number | undefined;
-  mama = <CreateMama>{};
+  mama = <CreateUpdateMama>{};
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
       this.restService.getMama(params['id']).subscribe((res) => {
         this.firstName = res.first_name;
         this.lastName = res.last_name;
+        this.paymentStatus = res.payment_status;
         this.id = res.id;
       });
     });
@@ -36,6 +38,7 @@ export class MamaEditComponent {
     let snackBar = this.snackBar;
     this.mama.first_name = this.firstName;
     this.mama.last_name = this.lastName;
+    this.mama.payment_status = this.paymentStatus;
     this.restService.putMama(this.id!, this.mama).subscribe({
       next(res) {},
       error(msg) {
