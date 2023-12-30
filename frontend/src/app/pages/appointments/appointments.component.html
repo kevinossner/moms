@@ -1,0 +1,7 @@
+<h1>Termine</h1>
+<mat-card class="calendar-card">
+  <mat-calendar [(selected)]="selected" class="calendar"></mat-calendar>
+</mat-card>
+<button mat-fab class="add-btn" (click)="navigate('/appointments/add/')">
+  <mat-icon>add</mat-icon>
+</button>

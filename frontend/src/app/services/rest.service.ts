@@ -14,6 +14,17 @@ export interface CreateMama {
   last_name: string;
 }
 
+export interface Appointment {
+  id: number;
+  name: string;
+  date: string;
+}
+
+export interface CreateAppointment {
+  name: string;
+  date: string;
+}
+
 
 @Injectable({
   providedIn: 'root'
@@ -48,5 +59,16 @@ export class RestService {
 
   deleteMama(id: number): Observable<Mama> {
     return this.http.delete<Mama>(`${this.mainUrl}/mamas/${id}`);
+  }
+
+  getAppointments(): Observable<Appointment[]> {
+    return this.http.get<Appointment[]>(`${this.mainUrl}/appointments/`);
+  }
+
+  postAppointment(appointment: CreateAppointment): Observable<Appointment> {
+    let httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
+    return this.http.post<Appointment>(`${this.mainUrl}/appointments/`, appointment, httpOptions);
   }
 }

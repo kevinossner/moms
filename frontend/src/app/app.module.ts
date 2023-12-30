@@ -14,21 +14,25 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 
 import { MamasComponent } from './pages/mamas/mamas.component';
-import { CoursesComponent } from './pages/courses/courses.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MamaAddComponent } from './pages/mama-add/mama-add.component';
 import { MamaEditComponent } from './pages/mama-edit/mama-edit.component';
+import { AppointmentsComponent } from './pages/appointments/appointments.component';
+import { AppointmentsAddComponent } from './pages/appointments-add/appointments-add.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MamasComponent,
-    CoursesComponent,
     HomeComponent,
     MamaAddComponent,
     MamaEditComponent,
+    AppointmentsComponent,
+    AppointmentsAddComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +47,9 @@ import { MamaEditComponent } from './pages/mama-edit/mama-edit.component';
     MatSnackBarModule,
     FormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

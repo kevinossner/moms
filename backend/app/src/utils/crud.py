@@ -30,3 +30,13 @@ def update_mama(db: Session, id: int, mama: schemas.MamaBase):
     db.commit()
     db.refresh(db_entry)
     return db_entry
+
+def read_appointments(db: Session):
+    return db.query(models.Appointment).order_by(models.Appointment.id).all()
+
+def create_appointment(db: Session, appointment: schemas.AppointmentBase):
+    db_entry = models.Appointment(name=appointment.name, date=appointment.date)
+    db.add(db_entry)
+    db.commit()
+    db.refresh(db_entry)
+    return db_entry

@@ -1,0 +1,10 @@
+::ng-deep .mat-calendar-body-selected {
+    background-color: var(--color-main) !important;
+  }
+  
+  .add-btn {
+    background-color: var(--color-main);
+    right: 5vw;
+    position: fixed;
+    bottom: 14vh;
+  }

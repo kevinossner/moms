@@ -1,5 +1,5 @@
-<h1>Mama hinzufügen</h1>
-<mat-card class="add-mama-card">
+<h1>Termin hinzufügen</h1>
+<mat-card class="add-appointment-card">
   <mat-card-actions align="end">
     <button mat-icon-button (click)="onClose()">
       <mat-icon class="colored-icon">close</mat-icon>
@@ -9,9 +9,9 @@
     <div class="row">
         <div class="col">
             <mat-form-field class="name-form">
-                <mat-label>Vorname</mat-label>
-                <input matInput type="text" [(ngModel)]="firstName">
-                <button *ngIf="firstName" matSuffix mat-icon-button aria-label="Clear" (click)="firstName=''">
+                <mat-label>Name</mat-label>
+                <input matInput type="text" [(ngModel)]="name">
+                <button *ngIf="name" matSuffix mat-icon-button aria-label="Clear" (click)="name=''">
                   <mat-icon>close</mat-icon>
                 </button>
               </mat-form-field>
@@ -19,18 +19,18 @@
     </div>
     <div class="row">
         <div class="col">
-            <mat-form-field class="name-form">
-                <mat-label>Nachname</mat-label>
-                <input matInput type="text" [(ngModel)]="lastName">
-                <button *ngIf="lastName" matSuffix mat-icon-button aria-label="Clear" (click)="lastName=''">
-                  <mat-icon>close</mat-icon>
-                </button>
+            <mat-form-field>
+                <mat-label>Datum</mat-label>
+                <input matInput [matDatepicker]="picker" [(ngModel)]="date">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
               </mat-form-field>
         </div>
     </div>
   </mat-card-content>
   <mat-card-actions align="end">
-    <button mat-icon-button (click)="onAdd()">
+    <button mat-icon-button (click)="onAdd()"> 
       <mat-icon class="colored-icon">save</mat-icon>
     </button>
   </mat-card-actions>

@@ -50,3 +50,11 @@ def put_mama(id: int, mama: schemas.MamaBase, db: Session = Depends(get_db)):
 @app.delete("/mamas/{id}", response_model=schemas.Mama)
 def delete_mama(id: int, db: Session = Depends(get_db)):
     return crud.delete_mama(db=db, id=id)
+
+@app.get("/appointments/", response_model=list[schemas.Appointment])
+def get_appointments(db: Session = Depends(get_db)):
+    return crud.read_appointments(db)
+
+@app.post("/appointments/", response_model=schemas.Appointment)
+def post_appointment(appointment: schemas.AppointmentBase, db: Session = Depends(get_db)):
+    return crud.create_appointment(db=db, appointment=appointment)

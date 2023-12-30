@@ -31,7 +31,7 @@ export class MamaAddComponent {
       },
       complete() {
         router.navigate(['/mamas/'], { skipLocationChange: true });
-        snackBar.open('Mama added!', 'Dismiss', {
+        snackBar.open('Mama hinzugefügt!', 'Ausblenden', {
           duration: 3 * 1000,
           horizontalPosition: 'center',
           verticalPosition: 'top',
