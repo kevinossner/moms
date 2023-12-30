@@ -5,8 +5,16 @@
   bottom: 14vh;
 }
 
-.mama-card {
-  margin-bottom: 2em;
+.mama-card-ok {
+  margin-bottom: 1em;
+  border-left-width: 0.5em;
+  border-color: green;
+}
+
+.mama-card-nok {
+  margin-bottom: 1em;
+  border-left-width: 0.5em;
+  border-color: red;
 }
 
 .close-btn {
