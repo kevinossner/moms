@@ -6,6 +6,7 @@ import { AppointmentsAddComponent } from './pages/appointments-add/appointments-
 import { HomeComponent } from './pages/home/home.component';
 import { MamaAddComponent } from './pages/mama-add/mama-add.component';
 import { MamaEditComponent } from './pages/mama-edit/mama-edit.component';
+import { DateComponent } from './pages/date/date.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'mamas/edit/:id', component: MamaEditComponent },
   { path: 'appointments', component: AppointmentsComponent },
   { path: 'appointments/add', component: AppointmentsAddComponent },
+  { path: 'dates/:date', component: DateComponent },
 ]
 
 @NgModule({

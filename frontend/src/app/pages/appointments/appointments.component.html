@@ -1,7 +1,9 @@
 <h1>Termine</h1>
 <mat-card class="calendar-card">
-  <mat-calendar [(selected)]="selected" class="calendar"></mat-calendar>
+  <div *ngIf="dates.length>0">
+    <mat-calendar [dateClass]="dateClass()" [(selected)]="selectedDate" (selectedChange)="onSelect()" class="calendar"></mat-calendar>
+  </div>
 </mat-card>
-<button mat-fab class="add-btn" (click)="navigate('/appointments/add/')">
+<button mat-fab class="add-btn" (click)="onAdd()">
   <mat-icon>add</mat-icon>
 </button>

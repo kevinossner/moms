@@ -24,6 +24,7 @@ import { MamaAddComponent } from './pages/mama-add/mama-add.component';
 import { MamaEditComponent } from './pages/mama-edit/mama-edit.component';
 import { AppointmentsComponent } from './pages/appointments/appointments.component';
 import { AppointmentsAddComponent } from './pages/appointments-add/appointments-add.component';
+import { DateComponent } from './pages/date/date.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { AppointmentsAddComponent } from './pages/appointments-add/appointments-
     MamaEditComponent,
     AppointmentsComponent,
     AppointmentsAddComponent,
+    DateComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,26 +1,53 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { RestService, Appointment } from '../../services/rest.service';
+import { MatCalendarCellCssClasses } from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-appointments',
   templateUrl: './appointments.component.html',
-  styleUrls: ['./appointments.component.scss']
+  styleUrls: ['./appointments.component.scss'],
 })
-export class AppointmentsComponent {
-  constructor(private elem: ElementRef, private router: Router) {}
-  selected?: Date | null;
+export class AppointmentsComponent implements OnInit {
+  constructor(
+    private elem: ElementRef,
+    private router: Router,
+    private restService: RestService
+  ) {}
+  selectedDate?: any;
+  appointments: Appointment[] = [];
+  dates: string[] = [];
 
-  ngAfterViewInit() {
-    let days = [' 3 ', ' 10 ', ' 15 ', ' 20 ',  ' 24 ']
-    let elements = this.elem.nativeElement.querySelectorAll('.mat-calendar-body-cell-content.mat-focus-indicator')
-    for (let element of elements) {
-      let day = element.innerHTML
-      if (days.includes(element.innerHTML)) {
-        element.style.border='5px solid var(--color-main)';
-      }
-    }
+  ngOnInit() {
+    this.restService.getAppointments().subscribe((res) => {
+      res.forEach((appointment) => this.dates.push(appointment.date));
+    });
   }
-  navigate(route: string) {
-    this.router.navigate([route], { skipLocationChange: true });
+
+  dateClass() {
+    return (date: Date): MatCalendarCellCssClasses => {
+      const highlightDate = this.dates
+        .map((strDate) => new Date(strDate))
+        .some(
+          (d) =>
+            d.getDate() === date.getDate() &&
+            d.getMonth() === date.getMonth() &&
+            d.getFullYear() === date.getFullYear()
+        );
+
+      return highlightDate ? 'special-date' : '';
+    };
+  }
+
+  onSelect() {
+    let date = this.selectedDate
+      .toLocaleString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' })
+      .split(',')[0];
+    this.router.navigate(['/dates/', date], { skipLocationChange: true });
+  }
+
+  onAdd() {
+    let router = this.router;
+    router.navigate(['/appointments/add/'], { skipLocationChange: true });
   }
 }

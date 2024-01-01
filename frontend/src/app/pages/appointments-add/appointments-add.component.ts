@@ -6,24 +6,27 @@ import { RestService, CreateAppointment } from '../../services/rest.service';
 @Component({
   selector: 'app-appointments-add',
   templateUrl: './appointments-add.component.html',
-  styleUrls: ['./appointments-add.component.scss']
+  styleUrls: ['./appointments-add.component.scss'],
 })
 export class AppointmentsAddComponent {
   constructor(
     private restService: RestService,
     private router: Router,
     private snackBar: MatSnackBar
-  ){}
+  ) {}
 
   name = '';
-  date = '';
+  selectedDate = '';
   appointment = <CreateAppointment>{};
 
   onAdd(): void {
     let router = this.router;
     let snackBar = this.snackBar;
     this.appointment.name = this.name;
-    this.appointment.date = this.date;
+    this.appointment.date = new Date(this.selectedDate).toLocaleString(
+      'de-DE',
+      { day: '2-digit', month: '2-digit', year: 'numeric' }
+    );
     this.restService.postAppointment(this.appointment).subscribe({
       next(res) {},
       error(msg) {
