@@ -67,6 +67,10 @@ export class RestService {
     return this.http.get<Appointment[]>(`${this.mainUrl}/appointments/`);
   }
 
+  getAppointmentsByDate(date: string): Observable<Appointment[]> {
+    return this.http.get<Appointment[]>(`${this.mainUrl}/appointments/${date}`);
+  }
+
   postAppointment(appointment: CreateAppointment): Observable<Appointment> {
     let httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })

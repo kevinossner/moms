@@ -55,6 +55,10 @@ def delete_mama(id: int, db: Session = Depends(get_db)):
 def get_appointments(db: Session = Depends(get_db)):
     return crud.read_appointments(db)
 
+@app.get("/appointments/{date}", response_model=list[schemas.Appointment])
+def get_appointments_by_date(date: str, db: Session = Depends(get_db)):
+    return crud.read_appointments_by_date(db, date=date)
+
 @app.post("/appointments/", response_model=schemas.Appointment)
 def post_appointment(appointment: schemas.AppointmentBase, db: Session = Depends(get_db)):
     return crud.create_appointment(db=db, appointment=appointment)

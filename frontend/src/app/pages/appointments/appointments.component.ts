@@ -27,7 +27,7 @@ export class AppointmentsComponent implements OnInit {
   dateClass() {
     return (date: Date): MatCalendarCellCssClasses => {
       const highlightDate = this.dates
-        .map((strDate) => new Date(strDate))
+        .map((strDate) => new Date(strDate.replace(/(.*)\.(.*)\.(.*)/, '$3-$2-$1')))
         .some(
           (d) =>
             d.getDate() === date.getDate() &&

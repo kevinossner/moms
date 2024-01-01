@@ -34,6 +34,9 @@ def update_mama(db: Session, id: int, mama: schemas.MamaBase):
 def read_appointments(db: Session):
     return db.query(models.Appointment).order_by(models.Appointment.id).all()
 
+def read_appointments_by_date(db: Session, date: str):
+    return db.query(models.Appointment).filter(models.Appointment.date == date).all()
+
 def create_appointment(db: Session, appointment: schemas.AppointmentBase):
     db_entry = models.Appointment(name=appointment.name, date=appointment.date)
     db.add(db_entry)
