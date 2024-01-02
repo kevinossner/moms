@@ -42,7 +42,7 @@ export class MamaAddComponent {
     });
   }
 
-  onClose(): void {
+  onBack(): void {
     this.router.navigate(['/mamas/'], { skipLocationChange: true });
   }
 }

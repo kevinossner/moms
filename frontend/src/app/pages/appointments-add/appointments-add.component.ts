@@ -33,7 +33,7 @@ export class AppointmentsAddComponent {
         console.log('Error Getting Location: ', msg);
       },
       complete() {
-        router.navigate(['/appointments/'], { skipLocationChange: true });
+        router.navigate(['/calendar/'], { skipLocationChange: true });
         snackBar.open('Termin hinzugefügt!', 'Ausblenden', {
           duration: 3 * 1000,
           horizontalPosition: 'center',
@@ -43,8 +43,12 @@ export class AppointmentsAddComponent {
     });
   }
 
+  onBack(): void {
+    this.router.navigate(['/calendar/'], { skipLocationChange: true });
+  }
+
   onClose(): void {
     let router = this.router;
-    router.navigate(['/appointments/'], { skipLocationChange: true });
+    router.navigate(['/calendar/'], { skipLocationChange: true });
   }
 }
