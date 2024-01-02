@@ -32,7 +32,8 @@ export interface Registration {
   id: number;
   appointment_id: number;
   mom_id: number;
-  mom: Mama
+  mom: Mama;
+  attended: boolean;
 }
 
 export interface CreateRegistration {
@@ -104,6 +105,13 @@ export class RestService {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
     return this.http.post<Registration>(`${this.mainUrl}/registrations/`, registration, httpOptions);
+  }
+
+  putRegistration(id: number, attended: boolean): Observable<Registration> {
+    let httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
+    return this.http.put<Registration>(`${this.mainUrl}/attendance/${id}?attended=${attended}`, httpOptions);
   }
 
   deleteRegistration(id: number): Observable<Registration> {

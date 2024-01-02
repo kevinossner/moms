@@ -10,7 +10,7 @@ class Mom(Base):
     id = Column(Integer, primary_key=True, index=True)
     first_name = Column(String)
     last_name = Column(String)
-    payment_status = Column(Boolean, default=True)
+    payment_status = Column(Boolean, default=False)
     registrations = relationship('Registration', back_populates='mom')
 
 class Appointment(Base):
@@ -27,5 +27,6 @@ class Registration(Base):
     id = Column(Integer, primary_key=True, index=True)
     appointment_id = Column(Integer, ForeignKey("appointments.id"))
     mom_id = Column(Integer, ForeignKey("moms.id"))
+    attended = Column(Boolean, default=False)
     mom = relationship('Mom', lazy='subquery', back_populates='registrations')
     appointments = relationship('Appointment', back_populates='registrations')

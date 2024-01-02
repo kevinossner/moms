@@ -60,6 +60,13 @@ def create_registration(db: Session, registration: schemas.RegistrationBase):
     db.refresh(db_entry)
     return db_entry
 
+def update_registration(db: Session, id: int, attended: bool):
+    db_entry = db.query(models.Registration).filter(models.Registration.id == id).first()
+    db_entry.attended = attended
+    db.commit()
+    db.refresh(db_entry)
+    return db_entry
+
 def delete_registration(db: Session, id: int):
     db_entry = db.query(models.Registration).filter(models.Registration.id == id).first()
     db.delete(db_entry)

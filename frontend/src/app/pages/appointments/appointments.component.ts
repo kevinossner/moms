@@ -119,4 +119,18 @@ export class AppointmentsComponent {
       width: '300px',
     });
   }
+
+  setAll(id: number, checked: boolean): void {
+    this.restService.putRegistration(id, checked).subscribe({
+      next(res) {},
+      error(msg) {
+        console.log('Error Getting Location: ', msg);
+      },
+      complete() {
+
+      },
+    });
+    console.log(checked);
+    console.log(id)
+  }
 }

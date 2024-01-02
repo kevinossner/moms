@@ -20,6 +20,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
 import { MatListModule } from '@angular/material/list';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { MamasComponent } from './pages/mamas/mamas.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -59,7 +60,8 @@ import { AppointmentsComponent } from './pages/appointments/appointments.compone
     MatSlideToggleModule,
     MatSelectModule,
     MatListModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

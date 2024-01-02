@@ -20,6 +20,7 @@ class RegistrationBase(BaseModel):
 class Registration(RegistrationBase):
     id: int
     mom: Mom
+    attended: bool
 
     class Config:
         orm_mode = True

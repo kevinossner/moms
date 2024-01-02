@@ -20,6 +20,10 @@
               <mat-icon class="colored-icon">close</mat-icon>
             </button>
             {{ registration.mom.first_name }} {{ registration.mom.last_name }}
+            <mat-checkbox
+            [checked]="registration.attended"
+            (change)="setAll(registration.id, $event.checked)">
+            </mat-checkbox>
           </mat-list-item>
         </div>
       </mat-list>
