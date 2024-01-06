@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import List
+from typing import List, Optional
 
 
 class MomBase(BaseModel):
@@ -31,7 +31,7 @@ class AppointmentBase(BaseModel):
 
 class Appointment(AppointmentBase):
     id: int
-    registrations: List[Registration]
+    registrations: Optional[List[Registration]] = []
 
     class Config:
         orm_mode = True

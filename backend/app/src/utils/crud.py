@@ -51,6 +51,9 @@ def create_appointment(db: Session, appointment: schemas.AppointmentBase):
     return db_entry
 
 def read_registrations(db: Session):
+    test = db.query(models.Registration).order_by(models.Registration.id).all()
+    for t in test:
+        print(t.__dict__)
     return db.query(models.Registration).order_by(models.Registration.id).all()
 
 def create_registration(db: Session, registration: schemas.RegistrationBase):
