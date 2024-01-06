@@ -17,13 +17,18 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSelectModule } from '@angular/material/select';
+import { MatListModule } from '@angular/material/list';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { MamasComponent } from './pages/mamas/mamas.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MamaAddComponent } from './pages/mama-add/mama-add.component';
 import { MamaEditComponent } from './pages/mama-edit/mama-edit.component';
-import { AppointmentsComponent } from './pages/appointments/appointments.component';
 import { AppointmentsAddComponent } from './pages/appointments-add/appointments-add.component';
+import { CalendarComponent } from './pages/calendar/calendar.component';
+import { AppointmentsComponent } from './pages/appointments/appointments.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +39,7 @@ import { AppointmentsAddComponent } from './pages/appointments-add/appointments-
     MamaEditComponent,
     AppointmentsComponent,
     AppointmentsAddComponent,
+    CalendarComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,7 +57,11 @@ import { AppointmentsAddComponent } from './pages/appointments-add/appointments-
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatSelectModule,
+    MatListModule,
+    MatBadgeModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -46,7 +46,7 @@ export class MamaEditComponent {
       },
       complete() {
         router.navigate(['/mamas/'], { skipLocationChange: true });
-        snackBar.open('Mama edited!', 'Dismiss', {
+        snackBar.open('Mama bearbeited!', 'Ausblenden', {
           duration: 3 * 1000,
           horizontalPosition: 'center',
           verticalPosition: 'top',
@@ -55,8 +55,7 @@ export class MamaEditComponent {
     });
   }
 
-  onClose(): void {
-    let router = this.router;
-    router.navigate(['/mamas/'], { skipLocationChange: true });
+  onBack(): void {
+    this.router.navigate(['/mamas/'], { skipLocationChange: true });
   }
 }

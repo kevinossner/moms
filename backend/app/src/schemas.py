@@ -1,13 +1,26 @@
 from pydantic import BaseModel
+from typing import List, Optional
 
 
-class MamaBase(BaseModel):
+class MomBase(BaseModel):
     first_name: str
     last_name: str
     payment_status: bool
 
-class Mama(MamaBase):
+class Mom(MomBase):
     id: int
+
+    class Config:
+        orm_mode = True
+
+class RegistrationBase(BaseModel):
+    mom_id: int
+    appointment_id: int
+
+class Registration(RegistrationBase):
+    id: int
+    mom: Mom
+    attended: bool
 
     class Config:
         orm_mode = True
@@ -18,6 +31,7 @@ class AppointmentBase(BaseModel):
 
 class Appointment(AppointmentBase):
     id: int
+    registrations: Optional[List[Registration]] = []
 
     class Config:
         orm_mode = True

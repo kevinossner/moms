@@ -105,3 +105,13 @@ h1 {
 .mdc-switch.mdc-switch--selected:enabled .mdc-switch__handle::after {
   background: green !important;
 }
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-ripple .mat-ripple-element {
+  opacity: 0.03 !important;
+  background-color: #005691!important;
+}
+
+.mdc-checkbox .mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background, .mdc-checkbox .mdc-checkbox__native-control:enabled:indeterminate~.mdc-checkbox__background, .mdc-checkbox .mdc-checkbox__native-control[data-indeterminate=true]:enabled~.mdc-checkbox__background {
+  background-color: var(--color-main) !important;
+  border-color: var(--color-main) !important;
+}

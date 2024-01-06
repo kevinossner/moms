@@ -42,8 +42,7 @@ export class MamaAddComponent {
     });
   }
 
-  onClose(): void {
-    let router = this.router;
-    router.navigate(['/mamas/'], { skipLocationChange: true });
+  onBack(): void {
+    this.router.navigate(['/mamas/'], { skipLocationChange: true });
   }
 }
